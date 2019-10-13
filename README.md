@@ -3,7 +3,7 @@
 ``` 
 //on local
 git clone https://github.com/ramkumarrajaram/teacherapi
-cd sample-node-api
+cd teacher-api
 npm install
 npm start
 ```
