@@ -1,4 +1,4 @@
-# Teacherapi
+# teacher-api
 
 ``` 
 //on local
