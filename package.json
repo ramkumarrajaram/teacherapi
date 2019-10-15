@@ -2,8 +2,11 @@
   "name": "teacher-api",
   "version": "1.0.0",
   "description": "Teacher Admin Functions",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "start": "nodemon --exec babel-node ./src/index.js",
+    "sequelize-skeleton": "./node_modules/sequelize-cli/lib/sequelize init:models; ./node_modules/sequelize-cli/lib/sequelize init:config",
+    "init-db": "cd /usr/local/mysql-8.0.17-macos10.14-x86_64/bin && echo 'DROP DATABASE IF EXISTS teacher_api_dev; CREATE DATABASE teacher_api_dev CHARACTER SET utf8 COLLATE utf8_general_ci' | ./mysql -u root && cd -",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,13 +14,21 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "debug": "^4.1.1",
     "express": "^4.17.1",
-    "helmet": "^3.15.1",
-    "jest": "^24.9.0",
-    "jwks-rsa": "^1.4.0",
+    "lodash": "^4.17.15",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.7.0",
     "sequelize": "^5.19.6",
-    "mysql2": "^1.7.0"
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "@babel/runtime": "^7.6.3",
+    "babel-loader": "^8.0.6"
   }
 }
