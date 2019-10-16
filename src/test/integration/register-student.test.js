@@ -13,7 +13,7 @@ import {
 	findStudentWithEmailAndTeacherId, 
 	registerStudentWithTeacher, 
 	findStudentWithEmailAddress
-} from '../../routes/domain-utils';
+} from '../../utils/domain-utils';
 import model from '../../models';
 
 const {Student, Teacher} = model;

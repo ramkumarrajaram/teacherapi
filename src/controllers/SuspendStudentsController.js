@@ -1,11 +1,11 @@
 import express from 'express';
 import {isEmpty} from 'lodash';
 import {isNotValidEmail, addStatusAndMessageToResponse} from '../utils';
-import {findStudentWithEmailAddress} from './domain-utils';
+import {findStudentWithEmailAddress} from '../utils/domain-utils';
 
-var suspendStudent = express.Router();
+var suspendStudentsController = express.Router();
 
-suspendStudent.post('/', (req, res) => {
+suspendStudentsController.post('/', (req, res) => {
 	const studentEmail = req.body.student;
     
 	if(isNotValidRequest(studentEmail, res)){
@@ -42,4 +42,4 @@ const isNotValidRequest = (studentEmail, res)=>{
 	}
 };
 
-export default suspendStudent;
+export default suspendStudentsController;

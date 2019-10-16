@@ -4,7 +4,7 @@ import {
 	findTeacherWithEmail, 
 	findNonSuspendedStudentWithTeachersEmail,
 	findNonSuspendedStudentWithEmailAddress
-} from './domain-utils';
+} from '../utils/domain-utils';
 import {addStatusAndMessageToResponse, isNotValidEmail} from '../utils';
 
 const retrieveForNotificationsRoute = express.Router();

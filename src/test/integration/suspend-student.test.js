@@ -10,7 +10,7 @@ import {
 } from './test-util';
 import {
 	findStudentWithEmailAddress
-} from '../../routes/domain-utils';
+} from '../../utils/domain-utils';
 import model from '../../models';
 
 const {Student} = model;

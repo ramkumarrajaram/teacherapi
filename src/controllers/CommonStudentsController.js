@@ -4,7 +4,7 @@ import {
 	addStatusAndMessageToResponse, 
 	convertToArrayIfNot
 } from '../utils';
-import {aggregateStudentEmailWithProvidedTeachersEmail} from './domain-utils';
+import {aggregateStudentEmailWithProvidedTeachersEmail} from '../utils/domain-utils';
 import {isEmpty} from 'lodash';
 
 const commonStudentsRoutes = express.Router();

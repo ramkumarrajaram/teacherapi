@@ -10,7 +10,7 @@ import {
 	findStudentWithEmailAndTeacherId, 
 	findStudentWithEmailAddress, 
 	registerStudentWithTeacher
-} from './domain-utils';
+} from '../utils/domain-utils';
 
 const registerStudentRoutes = express.Router();
 
