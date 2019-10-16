@@ -46,11 +46,11 @@ https://www.getpostman.com/collections/7d95530c946c1d7be33a
 
 ## Free hosting to access the application on internet.
 ```
-Not done yet. Working on it. Will provide soon.
+http://18.139.163.23:3000
 ```
 
 ## Open issues
-#### Found wiered behaviour with sqlte3 with group by clause. It doesn't work as expected as in mysql. Need some investigations to solve this problem. For common student end point, integration test is currently commented out. But request validation is being done.
+#### Found weird behaviour with sqlite3 with group by clause. It doesn't work as expected as in mysql. Need some investigations to solve this problem. For common student end point, integration test is currently commented out. But request validation is being done.
 
 ## Decision made.
 
