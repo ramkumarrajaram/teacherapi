@@ -41,7 +41,7 @@ http://localhost:3000
 
 ## Postman Collection
 ```
-https://documenter.getpostman.com/view/8894075/SVmySdMs?version=latest
+https://www.getpostman.com/collections/7d95530c946c1d7be33a
 ```
 
 ## Free hosting to access the application on internet.
