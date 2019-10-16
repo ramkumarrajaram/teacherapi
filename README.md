@@ -1,47 +1,89 @@
-# teacher-api
+## Software stack used.
+* Node latest version.
+* Docker to start the mysql database container. If you have on locally installed then don't need docker.
+* Express.
+* Sequelize as ORM.
+* Sqlte3 for database integration testing.
+* Mocha for async testing.
+* Chai for testing assertion.
+* Lodash. Util function JS lib.
+* Eslint for reducing the common issues.
+* Babel for transpiling latest js code to older version that node support.
 
-``` 
-//on local
-git clone https://github.com/ramkumarrajaram/teacherapi
-cd teacher-api
-npm install
-npm start
+
+#### Database name is testdb and db user right now is root and password is password in the ./config/config.json file. Please make a change if needed. For demo purpose application creates the schema by itself.
+
+## To start mysql server docker container. This will start the mysql with testdb and set the password for root user.
+```
+docker run --name some-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=testdb mysql:latest --default-authentication-plugin=mysql_native_password
 ```
 
-# Dependencies
+## To access the database
 ```
-npm install --save body-parser
-npm install --save cors
-npm install --save debug
-npm install --save debug
-npm install --save express
-npm install --save helmet
-npm install --save jest
-npm install --save jwks-rsa
-npm install --save morgan
-npm install --save mysql2
+docker exec -u root -it some-mysql /bin/bash
+mysql --user=root --password
+Enter the password as root user password.
 ```
 
-# Database Migration
-
-Initialize sequelize using the following command. 
-This will create the config script, migrations and models directory
-
+## To start the application. App will start wt port 3000 by default. To override it please create and env variable with name PORT.
 ```
-sequelize init 
+npm run start
 ```
 
+## To execute the test cases.
 ```
-sequelize-cli dependency is added for database migraton 
-Use the following command for creation of database tables using sequelize cli
-
-sequelize model:create --name Teacher --attributes email:string
-sequelize model:create --name Student --attributes email:string,issuspended:boolean
-sequelize model:create --name TeacherStudents --attributes teacherId:integer,studentId:integer
+npm run test
 ```
 
-Once the tables, models are created run the following command for DB migration
+## To access the application.
+```
+http://localhost:3000
+```
 
+## Postman Collection
 ```
-sequelize db:migrate 
+https://documenter.getpostman.com/view/8894075/SVmySdMs?version=latest
 ```
+
+## Free hosting to access the application on internet.
+```
+Not done yet. Working on it. Will provide soon.
+```
+
+## Open issues
+#### Found wiered behaviour with sqlte3 with group by clause. It doesn't work as expected as in mysql. Need some investigations to solve this problem. For common student end point, integration test is currently commented out. But request validation is being done.
+
+## Assumptions made.
+
+
+## Decision made.
+
+#### Unit/Integration Testing. I decided to use the sqlite3 in memory version to write the integration test cases which covers the end to end flow of an API and test the integration with the database. Ideally it should be with the same database as in production. This can also be done with scripts to run docker instance of mysql.
+
+#### Used Sequelize as ORM for database interaction. This made interaction with database easy a very good abstraction over writing the SQL queries but it doesn't block to write native SQL if needed.
+
+#### To stop SQL injections. I am validating the input type and raising the error if not in valid format with Http code 422.
+
+## Added below endpoints to create the Teacher and Student accounts.
+
+I have not added any tests cases for these two endpoints.
+
+Http Method: Post
+
+/api/students
+
+{
+	"firstName":"fn",
+	"lastName":"ln",
+	"email":"fn@gmail.com"
+}
+
+Http Method: Post
+
+/api/teachers
+
+{
+	"firstName":"fn",
+	"lastName":"ln",
+	"email":"fn@gmail.com"
+}
