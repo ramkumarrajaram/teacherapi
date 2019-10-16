@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "db-premigrate": "node src/scripts/CreateDB.js",
     "start": "nodemon --exec babel-node src/server.js ",
     "eslint": "eslint --ignore-path .gitignore .",
     "eslint-fix": "eslint --fix --ignore-path .gitignore .",

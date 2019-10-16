@@ -13,14 +13,13 @@
 
 #### Database name is testdb and db user right now is root and password is password in the ./config/config.json file. Please make a change if needed. For demo purpose application creates the schema by itself.
 
-## To start mysql server docker container. This will start the mysql with testdb and set the password for root user.
-```
-docker run --name some-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=testdb mysql:latest --default-authentication-plugin=mysql_native_password
+## To Create the Database run the following command
+``` 
+npm run db-premigrate
 ```
 
 ## To access the database
 ```
-docker exec -u root -it some-mysql /bin/bash
 mysql --user=root --password
 Enter the password as root user password.
 ```
@@ -52,9 +51,6 @@ Not done yet. Working on it. Will provide soon.
 
 ## Open issues
 #### Found wiered behaviour with sqlte3 with group by clause. It doesn't work as expected as in mysql. Need some investigations to solve this problem. For common student end point, integration test is currently commented out. But request validation is being done.
-
-## Assumptions made.
-
 
 ## Decision made.
 
